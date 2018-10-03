@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_height="match_parent" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+
+    <TextView
+        android:id="@+id/textTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textStyle="bold"
+        android:text="Expense Tracker"
+        />
+
+    <RelativeLayout
+        android:id="@+id/budget_Area"
+        android:layout_below="@+id/textTitle"
+        android:layout_width="match_parent"
+        android:background="#f2f2f2"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/labelBudget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_alignBaseline="@+id/btnAddToBudget"
+
+            android:layout_alignParentStart="true"
+            android:text="M.Budget :"/>
+        <TextView
+            android:id="@+id/textBudget"
+            android:layout_toEndOf="@id/labelBudget"
+            android:layout_alignBaseline="@+id/btnAddToBudget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:text="Rs 10000"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:layout_alignParentEnd="true"
+            android:padding="3dp"
+            android:textSize="18sp"
+            android:id="@+id/btnAddToBudget"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:padding="3dp"
+            android:textSize="18sp"
+            android:id="@+id/btnSubFromBudget"
+            android:layout_toStartOf="@+id/btnAddToBudget"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/inputArea"
+        android:layout_below="@id/budget_Area"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/labelExpense"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+
+            android:text="Add Expense"
+            />
+
+        <EditText
+            android:layout_below="@+id/labelExpense"
+            android:id="@+id/text_Amount"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:hint="Amount"
+            android:inputType="numberDecimal" />
+
+        <Spinner
+            android:id="@+id/dropdown_Expenses_category"
+            android:layout_width="120dp"
+            android:layout_height="45dp"
+            android:layout_alignBottom="@+id/text_Amount"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/text_Amount"
+            android:entries="@array/spinnervals">
+
+
+        </Spinner>
+
+
+        <Button
+            android:id="@+id/btnAddExpense"
+            android:layout_toEndOf="@+id/dropdown_Expenses_category"
+            android:layout_alignBaseline="@+id/dropdown_Expenses_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add"
+            />
+    </RelativeLayout>
+
+<RelativeLayout
+    android:layout_below="@+id/inputArea"
+    android:layout_width="match_parent"
+    android:layout_margin="10dp"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/txtNoExpensesToDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:background="#ffffff"
+        android:text="No Expenses to display"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/Recyclerview_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+    </android.support.v7.widget.RecyclerView>
+
+</RelativeLayout>
+
+</RelativeLayout>
