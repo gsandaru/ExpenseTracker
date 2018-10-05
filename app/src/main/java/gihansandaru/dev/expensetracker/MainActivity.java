@@ -3,12 +3,14 @@ package gihansandaru.dev.expensetracker;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.BottomSheetDialog;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -22,6 +24,7 @@ import gihansandaru.dev.expensetracker.viewmodels.ExpensesViewModel;
 public class MainActivity extends AppCompatActivity {
 
 
+    private BottomSheetDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
                         loadHomeFragment();
                         break;
                     case R.id.action_expenses:
+                        openDialog();
                         break;
                     case R.id.action_settings:
                         break;
@@ -93,5 +97,29 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.main_container, fragment);
         fragmentTransaction.commit();
+    }
+
+    private void openDialog() {
+        View view = getLayoutInflater().inflate(R.layout.bottomsheet, null);
+        dialog = new BottomSheetDialog(this);
+        dialog.setContentView(view);
+        dialog.setTitle("Title");
+        TextView camera_sel = (TextView) view.findViewById(R.id.camera);
+        TextView gallery_sel = (TextView) view.findViewById(R.id.gallery);
+        camera_sel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //takePhotoFromCamera();
+                dialog.dismiss();
+            }
+        });
+        gallery_sel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //takePhotoFromGallery();
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
     }
 }
