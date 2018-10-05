@@ -1,30 +1,54 @@
 package gihansandaru.dev.expensetracker;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import butterknife.ButterKnife;
 import gihansandaru.dev.expensetracker.Adapters.ExpenseAdapter;
+import gihansandaru.dev.expensetracker.fragments.HomeFragment;
 import gihansandaru.dev.expensetracker.viewmodels.ExpensesViewModel;
 
 public class MainActivity extends AppCompatActivity {
 
-    public ExpensesViewModel expensesViewModel;
-    private RecyclerView recyclerView;
-    private ExpenseAdapter expenseAdapter;
-    private Spinner spinner;
-    private EditText txtAmount;
-    private Button btnNewExpense;
-    private TextView txtNoExpensesToDisplay;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.navigation);
+
+        loadHomeFragment();
+
+
+        bottomNavigationView.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
+            @Override
+            public void onNavigationItemReselected(@NonNull MenuItem menuItem) {
+                int id = menuItem.getItemId();
+                switch (id){
+                    case R.id.action_home:
+                        loadHomeFragment();
+                        break;
+                    case R.id.action_expenses:
+                        break;
+                    case R.id.action_settings:
+                        break;
+                }
+            }
+        });
 
 
 //        spinner = findViewById(R.id.dropdown_Expenses_category);
@@ -60,5 +84,14 @@ public class MainActivity extends AppCompatActivity {
 //                expensesViewModel.insertExpense(expense);
 //            }
 //        });
+    }
+
+    private void loadHomeFragment() {
+        Fragment fragment = new HomeFragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.main_container, fragment);
+        fragmentTransaction.commit();
     }
 }
