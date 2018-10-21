@@ -3,6 +3,7 @@ package gihansandaru.dev.expensetracker.fragments;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -49,6 +50,8 @@ public class HomeFragment extends Fragment {
 
     @BindView(R.id.txtNoExpensesToDisplay)
     TextView txtNoExpensesToDisplay;
+    private Typeface font_header;
+    private Typeface font_body;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -68,6 +71,9 @@ public class HomeFragment extends Fragment {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
+        font_header = Typeface.createFromAsset(getContext().getAssets(),"fonts/BalooBhai-Regular.ttf");
+        font_body = Typeface.createFromAsset(getContext().getAssets(),"fonts/VarelaRound-Regular.otf");
+
         expensesViewModel = ViewModelProviders.of(this).get(ExpensesViewModel.class);
 
         expensesViewModel.getListLiveData().observe(this, new Observer<List<Expense>>() {
@@ -85,7 +91,7 @@ public class HomeFragment extends Fragment {
                 }
             }
         });
-
+        btnNewExpense.setTypeface(font_body);
         btnNewExpense.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
