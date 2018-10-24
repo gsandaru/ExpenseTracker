@@ -6,4 +6,11 @@
     <color name="darkGrey">#ba1c252a</color>
     <color name="btn_green">#4cb906</color>
     <color name="btn_green_pressed">#7aaf58</color>
+
+
+    <color name="app_black">#1c252a</color>
+    <color name="app_blue">#0091ea</color>
+    <color name="app_green">#4cb906</color>
+    <color name="app_purple">#9c28b1</color>
+    <color name="app_yello">#fec107</color>
 </resources>
