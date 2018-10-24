@@ -17,6 +17,7 @@
         android:drawableTop="@drawable/ic_home_black_24dp"
         android:gravity="center_horizontal"
         android:padding="16dp"
+        android:fontFamily="@font/fontheader"
         android:textColor="@android:color/white"
         android:text="Camera"
         android:textSize="18sp" />
@@ -31,6 +32,7 @@
         android:drawablePadding="8dp"
         android:drawableTop="@drawable/ic_settings_black_24dp"
         android:gravity="center_horizontal"
+        android:fontFamily="@font/fontheader"
         android:padding="16dp"
         android:text="Gallery"
         android:textColor="@android:color/white"

@@ -50,8 +50,6 @@ public class HomeFragment extends Fragment {
 
     @BindView(R.id.txtNoExpensesToDisplay)
     TextView txtNoExpensesToDisplay;
-    private Typeface font_header;
-    private Typeface font_body;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -71,8 +69,6 @@ public class HomeFragment extends Fragment {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        font_header = Typeface.createFromAsset(getContext().getAssets(),"fonts/BalooBhai-Regular.ttf");
-        font_body = Typeface.createFromAsset(getContext().getAssets(),"fonts/VarelaRound-Regular.otf");
 
         expensesViewModel = ViewModelProviders.of(this).get(ExpensesViewModel.class);
 
@@ -91,7 +87,6 @@ public class HomeFragment extends Fragment {
                 }
             }
         });
-        btnNewExpense.setTypeface(font_body);
         btnNewExpense.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

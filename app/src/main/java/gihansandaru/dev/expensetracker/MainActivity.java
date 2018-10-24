@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     private BottomSheetDialog dialog;
-    Typeface font_header,font_body;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +33,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        font_header = Typeface.createFromAsset(getAssets(),"fonts/BalooBhai-Regular.ttf");
-        font_body = Typeface.createFromAsset(getAssets(),"fonts/VarelaRound-Regular.otf");
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigation);
 
@@ -111,19 +108,17 @@ public class MainActivity extends AppCompatActivity {
         dialog.setTitle("Title");
         TextView camera_sel = (TextView) view.findViewById(R.id.camera);
         TextView gallery_sel = (TextView) view.findViewById(R.id.gallery);
-        camera_sel.setTypeface(font_body);
-        gallery_sel.setTypeface(font_body);
         camera_sel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //takePhotoFromCamera();
+
                 dialog.dismiss();
             }
         });
         gallery_sel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //takePhotoFromGallery();
+
                 dialog.dismiss();
             }
         });
