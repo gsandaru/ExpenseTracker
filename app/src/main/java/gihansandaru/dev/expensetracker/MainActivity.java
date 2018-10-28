@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import butterknife.ButterKnife;
 import gihansandaru.dev.expensetracker.Adapters.ExpenseAdapter;
+import gihansandaru.dev.expensetracker.fragments.DashBoardFragment;
 import gihansandaru.dev.expensetracker.fragments.HomeFragment;
 import gihansandaru.dev.expensetracker.viewmodels.ExpensesViewModel;
 
@@ -93,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadHomeFragment() {
-        Fragment fragment = new HomeFragment();
+        Fragment fragment = new DashBoardFragment();
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
