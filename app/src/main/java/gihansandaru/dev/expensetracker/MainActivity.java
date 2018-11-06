@@ -40,9 +40,10 @@ public class MainActivity extends AppCompatActivity {
         loadHomeFragment();
 
 
-        bottomNavigationView.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onNavigationItemReselected(@NonNull MenuItem menuItem) {
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
                 int id = menuItem.getItemId();
                 switch (id){
                     case R.id.action_home:
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.action_settings:
                         break;
                 }
+                return false;
             }
         });
 
@@ -107,8 +109,8 @@ public class MainActivity extends AppCompatActivity {
         dialog = new BottomSheetDialog(this);
         dialog.setContentView(view);
         dialog.setTitle("Title");
-        TextView camera_sel = (TextView) view.findViewById(R.id.camera);
-        TextView gallery_sel = (TextView) view.findViewById(R.id.gallery);
+        TextView camera_sel = (TextView) view.findViewById(R.id.bsheet_food);
+        TextView gallery_sel = (TextView) view.findViewById(R.id.bsheet_transport);
         camera_sel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

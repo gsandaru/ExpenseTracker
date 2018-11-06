@@ -17,9 +17,10 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Spinner
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginStart="20dp"
+            android:dropDownVerticalOffset="25dp"
             android:background="@null"
             android:entries="@array/dashboard_spinner_values">
 
