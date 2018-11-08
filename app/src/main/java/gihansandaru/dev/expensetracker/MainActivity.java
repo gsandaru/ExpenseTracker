@@ -1,6 +1,5 @@
 package gihansandaru.dev.expensetracker;
 
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -9,19 +8,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import butterknife.ButterKnife;
-import gihansandaru.dev.expensetracker.Adapters.ExpenseAdapter;
 import gihansandaru.dev.expensetracker.fragments.DashBoardFragment;
-import gihansandaru.dev.expensetracker.fragments.HomeFragment;
-import gihansandaru.dev.expensetracker.viewmodels.ExpensesViewModel;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -108,23 +100,30 @@ public class MainActivity extends AppCompatActivity {
         View view = getLayoutInflater().inflate(R.layout.bottomsheet, null);
         dialog = new BottomSheetDialog(this);
         dialog.setContentView(view);
-        dialog.setTitle("Title");
-        TextView camera_sel = (TextView) view.findViewById(R.id.bsheet_food);
-        TextView gallery_sel = (TextView) view.findViewById(R.id.bsheet_transport);
-        camera_sel.setOnClickListener(new View.OnClickListener() {
+        TextView btnFood = (TextView) view.findViewById(R.id.bsheet_food);
+        TextView btnTransport = (TextView) view.findViewById(R.id.bsheet_transport);
+        TextView btnGrocery = (TextView) view.findViewById(R.id.bsheet_grocery);
+        TextView btnShopping = (TextView) view.findViewById(R.id.bsheet_shopping);
+        TextView btnFuel = (TextView) view.findViewById(R.id.bsheet_Fuel);
+        TextView btnOther = (TextView) view.findViewById(R.id.bsheet_other);
+        btnFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 dialog.dismiss();
             }
         });
-        gallery_sel.setOnClickListener(new View.OnClickListener() {
+        btnTransport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 dialog.dismiss();
             }
         });
+
+
+
+
         dialog.show();
     }
 }
